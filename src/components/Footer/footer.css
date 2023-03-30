@@ -1,14 +1,16 @@
-/* footer.main-footer {
-    width: 45;
+footer.main-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     height: auto;
     background: gray;
-    padding: 0.5rem 0; */
-/* } */
+    padding: 0.5rem 0;
+}
 
 footer.main-footer ul {
     flex-direction: column;
     display: flex;
-     justify-content: flex-end; 
+    justify-content: flex-end;
     list-style: none;
     margin-right: 1.5rem;
 }
