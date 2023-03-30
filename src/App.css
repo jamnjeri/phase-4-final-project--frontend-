@@ -12,7 +12,7 @@ display: flex;
 color: black;
 } */
 .about-container{
-  background:url("../images/foodie.jpg");
+  background:url("../images/images.jpg"); 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -21,41 +21,22 @@ color: black;
   text-align: center;
   font-style: italic;
   padding-bottom: 75vh;
-  background-color: rgba(0, 0, 0, 0.9);
-
+  background-color: rgba(0, 0, 0, 1.7);
+  
 
 }
-.navbar {
-  height: 4em;
-  display: flex;
-  align-items: center;
-  flex: row;
-  position: relative;
+.about-container h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
 }
 
-.navbar span {
-  display: flex;
-  width: 40%;
-  right: 0;
-  position: absolute;
-  justify-content: space-evenly;
+.about-container p {
+  font-size: 20px;
+  font-weight:bold;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 20px;
 }
 
-.Navbar span h3 {
-  cursor: pointer;
-}
-
-.Navbar span h3:hover {
-  cursor: pointer;
-  color: blueviolet;
-}
-/* .name{
-  display: flex;
-  flex-direction : row;
-  justify-content: space-between;
-  width: 80;
-  text-decoration: blue; */
-  /* position:absolute;
-  bottom: 0px;
-  } */
 

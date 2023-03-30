@@ -1,14 +1,23 @@
-.Nav{
-    justify-content: space-around;
-    background-color: gray;
-  
-  }
-  .Navbar{
-  margin: 1px solid black; 
-   margin-bottom: 1px solid black;
-  background-color: mint;
-  padding: 1px;
-  flex-direction: horizontal;
+.Navbar {
+  background-color: grey;
+  color: #fff;
   display: flex;
-  color: black;
-  }
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.Navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar li {
+  margin: 0 1rem;
+}
+
+.Navbar a {
+  color: #fff;
+  text-decoration: none;
+}

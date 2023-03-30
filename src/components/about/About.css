@@ -1,0 +1,12 @@
+.about-container{
+     background:url("../images/images.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    padding-top: 5vh;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 75vh;
+    background-color: rgba(0, 0, 0, 0.9);
+}  
