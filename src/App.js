@@ -1,29 +1,24 @@
-import React from "react";
-import { BrowserRouter, Switch, Route} from "react-router-dom";
-import Nav from "./components/Navbar";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./App.css";
-import "semantic-ui-css/semantic.min.css";
-
-
-import About from "./components/About";
-import Skills from "./components/Skills";
-
-import { useEffect, useState } from "react";
+import 'semantic-ui-css/semantic.min.css'
+import About from './components/about/About'
+import Nav from './components/navbar/Navbar';
 
 function App() {
-   
-    
-    
-  return (
-    <div>
-      <BrowserRouter>
-        <Nav />
-        <Switch>
-          <Route exact path="/about"><About/></Route>
-</Switch>
-      </BrowserRouter>
-    </div>
-  );
+    return (
+        <div>
+          
+        
+            <BrowserRouter>
+            <Nav/>
+                <Routes>
+
+                    <Route path = '/about' element={<About/>}/>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

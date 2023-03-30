@@ -1,0 +1,22 @@
+footer.main-footer {
+    width: 100%;
+    height: auto;
+    background: #CAE1FF;
+    padding: 0.5rem 0;
+}
+
+footer.main-footer ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 1.5rem;
+}
+
+footer.main-footer ul li {
+    margin: 0 .1500rem;
+}
+
+footer.main-footer ul li img {
+    width: 28px;
+    cursor: pointer;
+}

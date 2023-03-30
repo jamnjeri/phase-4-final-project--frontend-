@@ -1,0 +1,14 @@
+.Nav{
+    justify-content: space-around;
+    background-color: gray;
+  
+  }
+  .Navbar{
+  margin: 1px solid black; 
+   margin-bottom: 1px solid black;
+  background-color: mint;
+  padding: 1px;
+  flex-direction: horizontal;
+  display: flex;
+  color: black;
+  }
