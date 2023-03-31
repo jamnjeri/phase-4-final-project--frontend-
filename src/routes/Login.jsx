@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from '../Footer/footer';
 
 export const Login = (props) => {
   // Initialize state variables for email, password, reset password, and reset email
@@ -89,6 +90,7 @@ export const Login = (props) => {
           Don't have an account? Register here.
         </button>
       )}
+      <footer/>
     </div>
   )
 }

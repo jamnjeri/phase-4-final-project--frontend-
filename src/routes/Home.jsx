@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Home from './Home';
+import Footer from '../Footer/footer';
+
 
 const AddRecipeForm = ({ onAddRecipe }) => {
   const [title, setTitle] = useState("");
@@ -111,6 +113,8 @@ const RecipeApp = () => {
         ))}
       </div>
       <Home onLogout={handleLogout}/>
+      <footer/>
+
     </div>
   );
 };

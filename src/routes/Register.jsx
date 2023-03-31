@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from '../Footer/footer';
 
 export const Register = ({ onLogin, onFormSwitch }) => {
   // Initialize state fields using a single useState hook
@@ -121,6 +122,8 @@ export const Register = ({ onLogin, onFormSwitch }) => {
       <button className="link-btn" onClick={() => onFormSwitch('login')}>
         Already have an account? Login here.
       </button>
+    <footer/>
+
     </div>
   );
 };
