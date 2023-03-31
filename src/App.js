@@ -1,24 +1,44 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState } from "react";
 import "./App.css";
-import 'semantic-ui-css/semantic.min.css'
-import About from './components/about/About'
-import Nav from './components/navbar/Navbar';
+import { Login } from "./routes/Login";
+import { Register } from "./routes/Register";
+import Home from "./routes/Home";
 
 function App() {
-    return (
-        <div>
-          
-        
-            <BrowserRouter>
-            <Nav/>
-                <Routes>
+  // Initialize state variables
+  const [currentForm, setCurrentForm] = useState("login");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-                    <Route path = '/about' element={<About/>}/>
-                </Routes>
-            </BrowserRouter>
-        </div>
-    );
+  // Function to switch between login and register forms
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
+
+  // Function to handle successful login
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  // Function to handle logout
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  return (
+    <div className="App">
+      {/* Render home component if user is logged in */}
+      {isLoggedIn ? (
+        <Home onLogout={handleLogout} />
+      ) : (
+        // Render login or register form, depending on currentForm state
+        currentForm === "login" ? (
+          <Login onFormSwitch={toggleForm} onLogin={handleLogin} />
+        ) : (
+          <Register onFormSwitch={toggleForm} onLogin={handleLogin} />
+        )
+      )}
+    </div>
+  );
 }
 
 export default App;

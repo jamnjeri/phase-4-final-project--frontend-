@@ -1,50 +1,78 @@
-/* .Nav{
-  justify-content: space-around;
-  background-color: gray;
+.auth-form-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 .Navbar{
-margin: 1px solid black; */
-/* margin-bottom: 1px solid black;
-background-color: mint;
-padding: 1px;
-display: flex;
-color: black;
-} */
-.about-container{
-  background:url("../images/images.jpg"); 
+margin: 1px solid black; 
+}
+.about-container {
+  background: url("../images/images.jpg"); 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-position: center;
   padding-top: 5vh;
   text-align: center;
   font-style: italic;
-  padding-bottom: 75vh;
-  /* background-color: rgba(0, 0, 0, 1.7); */
-  
-
-}
-.about-container h2 {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
+  padding-bottom: 40%; 
 }
 
-.about-container p {
-  font-size: 20px;
-  font-weight:bold;
-  line-height: 1.5;
-  color: white;
-  min-height: 45vh; /* set minimum height to the viewport height */
-  margin-bottom: 20px;
-}
-.section {
-  flex: 1; /* make the section take up all available vertical space */
+.link-btn {
+  background-color: transparent;
+  border: none;
+  color: #4CAF50;
+  cursor: pointer;
 }
 
-.footer {
-  margin-top: auto; /* push the footer to the bottom */
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.reset-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-form button[type="submit"] {
+  background-color: #007bff;
+}
+
+.reset-form button[type="submit"]:hover {
+  background-color: #0062cc;
 }
 
 
