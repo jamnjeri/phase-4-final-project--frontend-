@@ -26,7 +26,7 @@ function Login({setIsLoggedIn, setUserId, userId}) {
   function handleSubmit(e) {
     e.preventDefault();
 
-        fetch('https://zamil-petfinder.onrender.com/auth/login', {
+        fetch('http://127.0.0.1:3000', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ function Login({setIsLoggedIn, setUserId, userId}) {
 
   return (
     <div className="container-fluid bg-black h-screen" id="log">
-      <img src={logo} alt="Logo" width="200" height="180" class="d-inline-block align-text-top"/>
+      <img src={logo} alt="Logo" width="200" height="180" className="d-inline-block align-text-top"/>
       <center className="text-yellow-400 text-4xl mb-9">
         <h1>LOGIN</h1>
       </center>
@@ -90,6 +90,9 @@ function Login({setIsLoggedIn, setUserId, userId}) {
           </Link>
           <p className="text-white mt-4">
             Need an account? <Link to="/signup" className="font-bold text-yellow-400">Sign up?</Link>
+          </p>
+          <p className="text-white mt-2">
+            Forgot password? <Link to="" className="font-bold text-blue-400">Reset?</Link>
           </p>
         </div>
       </form>
