@@ -5,6 +5,7 @@ import About from "./pages/About";
 // import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import NewRecipe from "./pages/NewRecipe";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/new-recipe" element={<NewRecipe />} />
       </Routes>
       {/* <Footer /> */}
     </div>
