@@ -1,14 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function RecipeList({recipes, showComponentHandler, showComponent}) {
+function RecipeList({ recipes, showComponentHandler, showComponent, loggedIn, handleLogout }) {
 
   return (
     <div className='w-full h-full flex flex-col items-center backdrop-blur-lg '>
         <h1 className='text-black text-6xl font-Delicious underline mt-9'>RECIPES</h1>
-        <button className="bg-yellow-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8">
-            <Link to="/new-recipe">+Add Recipe</Link>
-        </button>
+        <div className="flex justify-between w-full">
+            <button className="bg-yellow-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8">
+                {loggedIn ? (<Link to="/new-recipe">+Add Recipe</Link>) : (<Link to="/login">+Add Recipe</Link>)}
+            </button>
+            {loggedIn && ( 
+                <button className="bg-red-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8" onClick={() => handleLogout()}>
+                    Log Out
+                </button>
+            )}
+        </div>
         <div className='container mx-auto mt-6'>
             <div className='flex flex-wrap justify-center'>
                 {recipes.length > 0 ? (

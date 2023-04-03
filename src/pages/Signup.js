@@ -21,30 +21,30 @@ function Signup({ setIsLoggedIn }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: formData.email,
-        password: formData.password,
-        firstname: formData.firstname,
-        lastname: formData.lastname,
-        username: formData.username,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // setIsLoggedIn(true);
-          nav("/");
-        } else {
-          throw new Error("Something went wrong");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // fetch("http://127.0.0.1:3000", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     email: formData.email,
+    //     password: formData.password,
+    //     firstname: formData.firstname,
+    //     lastname: formData.lastname,
+    //     username: formData.username,
+    //   }),
+    // })
+    //   .then((response) => {
+    //     if (response.ok) {
+    //       // setIsLoggedIn(true);
+    //       nav("/");
+    //     } else {
+    //       throw new Error("Something went wrong");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   }
 
   return (
