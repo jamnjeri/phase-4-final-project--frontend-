@@ -30,11 +30,11 @@ function App() {
     <div className="App">
       {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home loggedIn={loggedIn} handleLogin={handleLogin} handleLogout={handleLogout} user={user} />} />
+        <Route path="/" element={<Home loggedIn={loggedIn} handleLogin={handleLogin} handleLogout={handleLogout} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login handleLogin={handleLogin} setUser={setUser}/>} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/new-recipe" element={<NewRecipe />} />
+        <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+        <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
+        <Route path="/new-recipe" element={<NewRecipe user={user} />} />
       </Routes>
       {/* <Footer /> */}
     </div>

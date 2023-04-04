@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa';
 
-function NewRecipe() {
+function NewRecipe({ user }) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [imageURL, setImageURL] = useState('');
-    const [previewURL, setPreviewURL] = useState('');
-  
+    const [errors, setErrors] = useState([]);
+    let navigate = useNavigate();
+
 
     function handleTitleChange(event) {
       setTitle(event.target.value);
@@ -25,13 +26,28 @@ function NewRecipe() {
   
     function handleImageURLChange(event) {
       setImageURL(event.target.value);
-      setPreviewURL(event.target.value); // update preview
     }
   
     function handleSubmit(event) {
       event.preventDefault();
-      // Send form data to server to create new recipe
-      // ...
+      fetch("/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          ingredients: ingredients,
+          image_url: imageURL,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+            navigate("/");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
 
     }
   
@@ -55,7 +71,7 @@ function NewRecipe() {
                     id="title"
                     value={title}
                     onChange={handleTitleChange}
-                    className="border border-gray-600 rounded w-full py-2 px-3 text-white bg-white"
+                    className="border border-gray-600 rounded w-full py-2 px-3 text-black bg-white"
                 />
             </div>
             <div className="mb-4">
@@ -66,8 +82,13 @@ function NewRecipe() {
                     id="description"
                     value={description}
                     onChange={handleDescriptionChange}
-                    className="border border-gray-600 rounded w-full py-2 px-3 text-white bg-white"
+                    className="border border-gray-600 rounded w-full py-2 px-3 text-black bg-white"
                 />
+            </div>
+            <div className="mb-4">
+                {errors.map((err) => (
+                <p key={err} className='text-red-500'>{err}</p>
+                ))}
             </div>
             <div className="mb-4">
                 <label htmlFor="ingredients" className="block font-bold mb-2">
@@ -77,7 +98,7 @@ function NewRecipe() {
                     id="ingredients"
                     value={ingredients}
                     onChange={handleIngredientsChange}
-                    className="border border-gray-600 rounded w-full py-2 px-3 text-white bg-white"
+                    className="border border-gray-600 rounded w-full py-2 px-3 text-black bg-white"
                 />
             </div>
             <div className="mb-4">
@@ -89,10 +110,9 @@ function NewRecipe() {
                     id="imageURL"
                     value={imageURL}
                     onChange={handleImageURLChange}
-                    className="border border-gray-600 rounded w-full py-2 px-3 text-white bg-white"
+                    className="border border-gray-600 rounded w-full py-2 px-3 text-black bg-white"
                 />
             </div>
-            {previewURL && <img src={previewURL} alt="Recipe preview" className="w-full mb-4" />}
             <button
                 type="submit"
                 className="bg-yellow-500 hover:text-black text-white font-bold py-2 px-4 rounded"

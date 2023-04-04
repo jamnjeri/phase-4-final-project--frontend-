@@ -2,6 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function RecipeList({ recipes, showComponentHandler, showComponent, loggedIn, handleLogout }) {
+    
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            handleLogout();
+          }
+        });
+    }
+
 
   return (
     <div className='w-full h-full flex flex-col items-center backdrop-blur-lg '>

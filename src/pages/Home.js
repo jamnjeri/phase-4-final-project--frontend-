@@ -5,7 +5,7 @@ import RecipeList from '../components/RecipeList'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-function Home( {loggedIn, handleLogin, handleLogout, user} ) {
+function Home( {loggedIn, handleLogin, handleLogout} ) {
 
   // Store the fetched recipes
   const [recipes, setRecipes] = useState([]);
@@ -29,15 +29,6 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
   const toggleShowComponent = () => {
     setShowComponent(!showComponent);
   };
-
-
-  // Fetch the recipes
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/recipes")
-  //     .then (r => r.json())
-  //     .then(data => setRecipes(data))
-  // }, []);
-
   
   useEffect(() => {
     // Keep user Logged in

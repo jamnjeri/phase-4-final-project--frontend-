@@ -2,49 +2,35 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../assests/logo.png";
 
-function Signup({ setIsLoggedIn }) {
-  const [formData, setFormData] = useState({
-    username: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
-  const nav = useNavigate();
+function Signup({ handleLogin }) {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [gender, setGender] = useState("");
 
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
+  const [errors, setErrors] = useState([]);
+
+  let navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    // fetch("http://127.0.0.1:3000", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email: formData.email,
-    //     password: formData.password,
-    //     firstname: formData.firstname,
-    //     lastname: formData.lastname,
-    //     username: formData.username,
-    //   }),
-    // })
-    //   .then((response) => {
-    //     if (response.ok) {
-    //       // setIsLoggedIn(true);
-    //       nav("/");
-    //     } else {
-    //       throw new Error("Something went wrong");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, username, email, password, gender }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          handleLogin(user)
+          navigate("/");
+        });
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
 
   return (
@@ -59,11 +45,11 @@ function Signup({ setIsLoggedIn }) {
           <input
             type="text"
             className="block w-full p-2 border border-gray-300 rounded-md"
-            placeholder="First Name"
-            name="firstname"
-            id="firstname"
-            onChange={handleChange}
-            value={formData.firstname}
+            placeholder="Name"
+            name="name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
@@ -71,23 +57,11 @@ function Signup({ setIsLoggedIn }) {
           <input
             type="text"
             className="block w-full p-2 border border-gray-300 rounded-md"
-            placeholder="Last Name"
-            name="lastname"
-            id="lastname"
-            onChange={handleChange}
-            value={formData.lastname}
-          />
-        </div>
-
-        <div className="mb-4">
-          <input
-            type="text"
-            className="block w-full p-2 border border-gray-300 rounded-md"
-            placeholder="@Username"
+            placeholder="Username"
             name="username"
             id="username"
-            onChange={handleChange}
-            value={formData.username}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </div>
 
@@ -95,11 +69,11 @@ function Signup({ setIsLoggedIn }) {
           <input
             type="email"
             className="block w-full p-2 border border-gray-300 rounded-md"
-            placeholder="Email Address"
+            placeholder="Email"
             name="email"
             id="email"
-            onChange={handleChange}
-            value={formData.email}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
 
@@ -110,13 +84,31 @@ function Signup({ setIsLoggedIn }) {
             placeholder="Password"
             name="password"
             id="password"
-            onChange={handleChange}
-            value={formData.password}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
 
+        <div className="mb-4">
+          <input
+            type="text"
+            className="block w-full p-2 border border-gray-300 rounded-md"
+            placeholder="Gender"
+            name="gender"
+            id="gender"
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
+          />
+        </div>
+
+        <div className="mb-4">
+                {errors.map((err) => (
+                <p key={err} className='text-red-500'>{err}</p>
+                ))}
+        </div>
+
         <div className="text-center">
-          <Link type="submit" to="/login" className="bg-white hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <Link type="submit" className="bg-white hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Signup
           </Link>
           <p className="text-white mt-4">

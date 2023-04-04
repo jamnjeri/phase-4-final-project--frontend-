@@ -8,13 +8,11 @@ function Login({ handleLogin }) {
   const [password, setPassword] = useState("");
 
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   let navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -22,7 +20,6 @@ function Login({ handleLogin }) {
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
-      setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
           handleLogin(user)
@@ -66,6 +63,11 @@ function Login({ handleLogin }) {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+        </div>
+        <div className="mb-6">
+                {errors.map((err) => (
+                <p key={err} className='text-red-500'>{err}</p>
+                ))}
         </div>
         <div className="text-center">
         <button type="submit" className="bg-white hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
