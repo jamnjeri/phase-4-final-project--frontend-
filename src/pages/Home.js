@@ -5,7 +5,7 @@ import RecipeList from '../components/RecipeList'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-function Home( {loggedIn, handleLogin, handleLogout} ) {
+function Home( {loggedIn, handleLogin, handleLogout, user} ) {
 
   // Store the fetched recipes
   const [recipes, setRecipes] = useState([]);
@@ -29,30 +29,33 @@ function Home( {loggedIn, handleLogin, handleLogout} ) {
   const toggleShowComponent = () => {
     setShowComponent(!showComponent);
   };
+
+  // handleLogin(user)
   
   useEffect(() => {
     // Keep user Logged in
-    fetch("http://localhost:3000/me")
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => {
-            handleLogin(user)
-          });
-        }
-      })
-      .catch((error) => {
-        console.log("Error fetching user data: ", error);
-      });
+    // fetch('http://localhost:3000/me', {
+    //   method: "GET",
+    // }).then((res) => {
+    //   if (res.ok) {
+    //     res
+    //       .json()
+    //       .then((user) => {
+    //         sessionStorage.setItem("user", user);
+    //       })
+    //       .catch((err) => console.log(err));
+    //   }
+    // });
 
-      // Fetch the Recipes
-      fetch("http://localhost:3000/recipes")
-      .then((response) => response.json())
-      .then((data) => {
-        setRecipes(data);
-      })
-      .catch((error) => {
-        console.log("Error fetching recipes: ", error);
-      });
+    // Fetch the Recipes
+    fetch("http://localhost:3000/recipes")
+    .then((response) => response.json())
+    .then((data) => {
+      setRecipes(data);
+    })
+    .catch((error) => {
+      console.log("Error fetching recipes: ", error);
+    });
   }, []);
 
   return (
