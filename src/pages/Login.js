@@ -13,7 +13,7 @@ function Login({ handleLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://foodie-woogie.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

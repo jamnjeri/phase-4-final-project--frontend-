@@ -17,7 +17,7 @@ function Signup({ handleLogin }) {
     e.preventDefault();
     console.log("Pressed");
 
-    fetch("http://localhost:3000/signup", {
+    fetch("https://foodie-woogie.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

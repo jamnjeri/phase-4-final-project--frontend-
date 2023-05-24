@@ -54,7 +54,7 @@ function Recipe({recipe, toggleShowComponent, user}) {
     }
 
     // TODO: Send rating and comment to backend API to add new review
-    fetch('http://localhost:3000/reviews', {
+    fetch('https://foodie-woogie.onrender.com/reviews', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ function Recipe({recipe, toggleShowComponent, user}) {
    // Get the tags
   useEffect(() => {
   // Fetch the Tags
-  fetch("http://localhost:3000/tags")
+  fetch("https://foodie-woogie.onrender.com/tags")
   .then((response) => response.json())
   .then((data) => {
     setTags(data);
@@ -109,7 +109,7 @@ function Recipe({recipe, toggleShowComponent, user}) {
     console.log(data1)
 
     // TODO: Send tag name to backend API to add new tag
-    fetch('http://localhost:3000//recipe-tag', {
+    fetch('https://foodie-woogie.onrender.com/recipe-tag', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
