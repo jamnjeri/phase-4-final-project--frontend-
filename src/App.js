@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NewRecipe from "./pages/NewRecipe";
+import NewTag from "./pages/NewTag";
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
         res
           .json()
           .then((user) => {
-            sessionStorage.setItem("user", user);
+            // sessionStorage.setItem("user", JSON.stringify(user));
             setUser(user);
           })
           .catch((err) => console.log(err));
@@ -36,11 +37,16 @@ function App() {
 
   const handleLogin = (user) => {
     setIsLoggedIn(true);
-    console.log(user)
+    // console.log(user)
+    sessionStorage.setItem("user", JSON.stringify(user));
+    console.log(loggedIn)
     setUser(user)
   };
 
   const handleLogout = () => {
+    // handle successful logout
+    setUser(null); // set user state to null
+    sessionStorage.removeItem("user")
     setIsLoggedIn(false);
   };
 
@@ -53,6 +59,7 @@ function App() {
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
         <Route path="/new-recipe" element={<NewRecipe user={user} />} />
+        <Route path="/new-tag" element={<NewTag />} />
       </Routes>
       {/* <Footer /> */}
     </div>

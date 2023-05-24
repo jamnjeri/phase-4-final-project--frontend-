@@ -30,10 +30,10 @@ function NewRecipe({ user }) {
   
     function handleSubmit(event) {
       event.preventDefault();
-      fetch("/recipes", {
+      fetch("http://localhost:3000/recipes", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           title: title,

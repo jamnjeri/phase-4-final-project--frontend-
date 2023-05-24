@@ -15,6 +15,8 @@ function Signup({ handleLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("Pressed");
+
     fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
@@ -108,9 +110,9 @@ function Signup({ handleLogin }) {
         </div>
 
         <div className="text-center">
-          <Link type="submit" className="bg-white hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <button type="submit" className="bg-white hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Signup
-          </Link>
+          </button>
           <p className="text-white mt-4">
           Already registered ? <Link to="/login" className="font-bold text-yellow-400">Login?</Link>
           </p>

@@ -8,7 +8,7 @@ function About() {
     <div>
       <Navbar/>
       <div className="flex p-8 rounded-md shadow-md">
-        <img src={logo} alt="Logo" className="h-32 mr-8 my-auto" style={{backgroundColor: 'black'}} />
+        <img src={logo} alt="Logo" className="h-32 mr-8 my-auto" style={{backgroundColor: 'black', borderRadius: '50%'}} />
         <div>
           <h1 className="text-3xl font-bold mb-4">About Our Recipe Web App</h1>
           <p className="text-lg mb-4">Our recipe web app is designed to help you discover new and exciting recipes that you can easily make at home. We believe that cooking should be fun and easy, and our app is designed to make it just that.</p>

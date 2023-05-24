@@ -34,18 +34,17 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
   
   useEffect(() => {
     // Keep user Logged in
-    // fetch('http://localhost:3000/me', {
-    //   method: "GET",
-    // }).then((res) => {
-    //   if (res.ok) {
-    //     res
-    //       .json()
-    //       .then((user) => {
-    //         sessionStorage.setItem("user", user);
-    //       })
-    //       .catch((err) => console.log(err));
-    //   }
-    // });
+    // fetch("http://localhost:3000/me")
+    //   .then((r) => {
+    //     if (r.ok) {
+    //       r.json().then((user) => {
+    //         handleLogin(user)
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error fetching user data: ", error);
+    //   });
 
     // Fetch the Recipes
     fetch("http://localhost:3000/recipes")
@@ -61,7 +60,7 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
   return (
     <>
       <Navbar />
-      {showComponent ? <Recipe recipe={selectedRecipe} toggleShowComponent={toggleShowComponent} /> : <RecipeList recipes={recipes} showComponentHandler={showComponentHandler} showComponent={showComponent} loggedIn={loggedIn} handleLogout={handleLogout} />}
+      {showComponent ? <Recipe recipe={selectedRecipe} toggleShowComponent={toggleShowComponent} user={user} /> : <RecipeList recipes={recipes} showComponentHandler={showComponentHandler} showComponent={showComponent} loggedIn={loggedIn} handleLogout={handleLogout} />}
       <Footer />
     </>
   )
