@@ -30,7 +30,7 @@ function NewRecipe({ user }) {
   
     function handleSubmit(event) {
       event.preventDefault();
-      fetch("http://localhost:3000/recipes", {
+      fetch("https://foodie-woogie.onrender.com/recipes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

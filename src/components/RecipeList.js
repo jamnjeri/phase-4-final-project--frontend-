@@ -6,7 +6,7 @@ function RecipeList({ recipes, showComponentHandler, showComponent, loggedIn, ha
     
 
     function handleLogoutClick() {
-        fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
+        fetch("https://foodie-woogie.onrender.com/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
             handleLogout();
           }

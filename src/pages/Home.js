@@ -34,7 +34,7 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
   
   useEffect(() => {
     // Keep user Logged in
-    // fetch("http://localhost:3000/me")
+    // fetch("https://foodie-woogie.onrender.com/me")
     //   .then((r) => {
     //     if (r.ok) {
     //       r.json().then((user) => {
@@ -47,7 +47,7 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
     //   });
 
     // Fetch the Recipes
-    fetch("http://localhost:3000/recipes")
+    fetch("https://foodie-woogie.onrender.com/recipes")
     .then((response) => response.json())
     .then((data) => {
       setRecipes(data);

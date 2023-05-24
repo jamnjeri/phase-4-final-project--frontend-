@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     // auto-login user
-    fetch("http://localhost:3000/me", {
+    fetch("https://foodie-woogie.onrender.com//me", {
       method: "GET",
     }).then((res) => {
       if (res.ok) {

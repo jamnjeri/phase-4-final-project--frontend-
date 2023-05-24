@@ -15,7 +15,7 @@ function NewTag() {
     // POST New Tag
     function handleSubmit(event) {
         event.preventDefault();
-        fetch("http://localhost:3000/tags", {
+        fetch("https://foodie-woogie.onrender.com/tags", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
