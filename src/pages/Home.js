@@ -30,44 +30,37 @@ function Home( {loggedIn, handleLogin, handleLogout, user} ) {
     setShowComponent(!showComponent);
   };
 
-
-  // Fetch the recipes
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/recipes")
-  //     .then (r => r.json())
-  //     .then(data => setRecipes(data))
-  // }, []);
-
+  // handleLogin(user)
   
   useEffect(() => {
     // Keep user Logged in
-    fetch("http://localhost:3000/me")
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => {
-            handleLogin(user)
-          });
-        }
-      })
-      .catch((error) => {
-        console.log("Error fetching user data: ", error);
-      });
+    // fetch("http://localhost:3000/me")
+    //   .then((r) => {
+    //     if (r.ok) {
+    //       r.json().then((user) => {
+    //         handleLogin(user)
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error fetching user data: ", error);
+    //   });
 
-      // Fetch the Recipes
-      fetch("http://localhost:3000/recipes")
-      .then((response) => response.json())
-      .then((data) => {
-        setRecipes(data);
-      })
-      .catch((error) => {
-        console.log("Error fetching recipes: ", error);
-      });
+    // Fetch the Recipes
+    fetch("http://localhost:3000/recipes")
+    .then((response) => response.json())
+    .then((data) => {
+      setRecipes(data);
+    })
+    .catch((error) => {
+      console.log("Error fetching recipes: ", error);
+    });
   }, []);
 
   return (
     <>
       <Navbar />
-      {showComponent ? <Recipe recipe={selectedRecipe} toggleShowComponent={toggleShowComponent} /> : <RecipeList recipes={recipes} showComponentHandler={showComponentHandler} showComponent={showComponent} loggedIn={loggedIn} handleLogout={handleLogout} />}
+      {showComponent ? <Recipe recipe={selectedRecipe} toggleShowComponent={toggleShowComponent} user={user} /> : <RecipeList recipes={recipes} showComponentHandler={showComponentHandler} showComponent={showComponent} loggedIn={loggedIn} handleLogout={handleLogout} />}
       <Footer />
     </>
   )

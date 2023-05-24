@@ -2,16 +2,30 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function RecipeList({ recipes, showComponentHandler, showComponent, loggedIn, handleLogout }) {
+    
+    
+
+    function handleLogoutClick() {
+        fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            handleLogout();
+          }
+        });
+    }
+
 
   return (
-    <div className='w-full h-full flex flex-col items-center backdrop-blur-lg '>
+    <div className='h-full flex flex-col items-center backdrop-blur-lg '>
         <h1 className='text-black text-6xl font-Delicious underline mt-9'>RECIPES</h1>
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between p-2 gap-14">
             <button className="bg-yellow-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8">
                 {loggedIn ? (<Link to="/new-recipe">+Add Recipe</Link>) : (<Link to="/login">+Add Recipe</Link>)}
             </button>
+            <button className="bg-yellow-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8">
+                {loggedIn ? (<Link to="/new-tag">Create Tag</Link>) : (<Link to="/login">Create Tag</Link>)}
+            </button>
             {loggedIn && ( 
-                <button className="bg-red-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8" onClick={() => handleLogout()}>
+                <button className="bg-red-500 hover:text-white text-black font-Delicious text-3xl py-2 px-4 rounded mt-4 rounded-full mt-8" onClick={() => handleLogoutClick()}>
                     Log Out
                 </button>
             )}
